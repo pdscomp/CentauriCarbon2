@@ -1,0 +1,7 @@
+#!/bin/sh
+echo "prerm......"
+
+if pgrep -fl "elegoo_printer /opt/inst/printer.cfg" > /dev/null; then
+    run_printer.sh stop
+    echo "stop elegoo_printer"
+fi

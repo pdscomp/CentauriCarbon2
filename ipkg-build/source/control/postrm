@@ -1,0 +1,6 @@
+#!/bin/sh
+echo "postrm......"
+
+cd /opt/bin/
+rm elegoo_printer debug_window run_printer.sh -rf
+cd -

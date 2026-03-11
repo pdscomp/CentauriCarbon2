@@ -1,0 +1,9 @@
+Package: elegoo_printer
+Version: 02.10.18.45
+Architecture: sunxi
+# Depends: libpthread,libutil,libdl,libstdc++,libm,libgcc_s,libc
+Maintainer: Loping
+Section: elegoo_printer
+Priority: NaN
+Description: this is package test for elegoo_printer.
+Source: elegoo_printer code 

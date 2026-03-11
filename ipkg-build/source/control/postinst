@@ -1,0 +1,77 @@
+#!/bin/sh
+echo "postinst......"
+
+if [ -e "/opt/lib/libz.so.1" ]; then
+    echo "/opt/lib/libz.so.1 is exist"
+else
+    echo "create /opt/lib/libz.so.1->/opt/lib/libz.so.1.2.11"
+    ln -s /opt/lib/libz.so.1.2.11 /opt/lib/libz.so.1
+fi
+
+
+# echo "Starting MCU Update"
+# # 申请MCU电源控制GPIO引脚
+# echo 143 > /sys/class/gpio/export
+# echo 142 > /sys/class/gpio/export
+# sleep 0.2
+# echo out > /sys/class/gpio/gpio143/direction
+# echo out > /sys/class/gpio/gpio142/direction
+
+# mcu_firmware="mcu_gd32-20250427_173447-00.00.00.02-app.bin"
+# toolhead_firmware="toolhead_gd32-20250427_173741-00.00.00.02-app.bin"
+# bed_firmware="bed_sensor-20250508_122259-00.00.00.03-app.bin"
+
+
+# # 升级MCU固件
+# /opt/inst/firmware_version/update_tools /dev/ttyS4 250000 /opt/inst/firmware_version/$mcu_firmware
+# if [ $? -eq 0 ]; then
+#     echo "update mcu complted"
+# else
+#     echo "update mcu again"
+#     /opt/inst/firmware_version/update_tools /dev/ttyS4 250000 /opt/inst/firmware_version/$mcu_firmware
+#     if [ $? -eq 0 ]; then
+#         echo "update mcu complted"
+#     else
+#         echo "update mcu failed"
+#     fi
+# fi
+
+# # 升级toolhead
+# echo 0 > /sys/class/gpio/gpio142/value;
+# sleep 0.1;
+# echo 1 > /sys/class/gpio/gpio142/value;
+# /opt/inst/firmware_version/update_tools /dev/ttyS1 250000 /opt/inst/firmware_version/$toolhead_firmware
+# if [ $? -eq 0 ]; then
+#     echo "update toolhead complted"
+# else
+#     echo "update toolhead again"
+#     echo 0 > /sys/class/gpio/gpio142/value;
+#     sleep 0.1;
+#     echo 1 > /sys/class/gpio/gpio142/value;
+#     /opt/inst/firmware_version/update_tools /dev/ttyS1 250000 /opt/inst/firmware_version/$toolhead_firmware
+#     if [ $? -eq 0 ]; then
+#         echo "update toolhead complted"
+#     else
+#         echo "update toolhead failed"
+#     fi
+# fi
+
+# # 升级bed_sensor
+# echo 0 > /sys/class/gpio/gpio143/value
+# sleep 0.1
+# echo 1 > /sys/class/gpio/gpio143/value
+# /opt/inst/firmware_version/update_tools /dev/ttyS0 250000 /opt/inst/firmware_version/$bed_firmware
+# if [ $? -eq 0 ]; then
+#     echo "update bed_sensor complted"
+# else
+#     echo "update bed_sensor again"
+#     echo 0 > /sys/class/gpio/gpio143/value
+#     sleep 0.1
+#     echo 1 > /sys/class/gpio/gpio143/value
+#     /opt/inst/firmware_version/update_tools /dev/ttyS0 250000 /opt/inst/firmware_version/$bed_firmware
+#     if [ $? -eq 0 ]; then
+#         echo "update bed_sensor complted"
+#     else
+#         echo "update bed_sensor failed"
+#     fi
+# fi

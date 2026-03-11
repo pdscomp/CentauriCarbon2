@@ -1,0 +1,14 @@
+#!/bin/sh
+echo "preinst......"
+
+if pgrep -fl "elegoo_printer /opt/inst/printer.cfg" > /dev/null; then
+    run_printer.sh stop
+fi
+
+
+OPKG_DEST=/opt
+
+# # 删除旧固件
+# rm -rvf ${OPKG_DEST}/inst/firmware_version/bed_sensor_*
+# rm -rvf ${OPKG_DEST}/inst/firmware_version/mcu_*
+# rm -rvf ${OPKG_DEST}/inst/firmware_version/toolhead_*

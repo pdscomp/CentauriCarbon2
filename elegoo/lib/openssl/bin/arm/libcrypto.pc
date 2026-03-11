@@ -1,0 +1,12 @@
+prefix=/home/eeb001/loping_bak/r528-s3/lib/openssl-1.1.1w/_install
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+enginesdir=${libdir}/engines-1.1
+
+Name: OpenSSL-libcrypto
+Description: OpenSSL cryptography library
+Version: 1.1.1w
+Libs: -L${libdir} -lcrypto
+Libs.private: -ldl -pthread 
+Cflags: -I${includedir}
